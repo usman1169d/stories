@@ -60,11 +60,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         storyCards.forEach(card => {
-            const title = card.querySelector('.story-title').textContent.toLowerCase();
-            const content = card.querySelector('.story-content').textContent.toLowerCase();
-            const moral = card.querySelector('.moral').textContent.toLowerCase();
-            const verse = card.querySelector('.islamic-verse');
-            const verseText = verse ? verse.textContent.toLowerCase() : '';
+            const titleEl = card.querySelector('.story-title');
+            const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+            const contentEl = card.querySelector('.story-content');
+            const content = contentEl ? contentEl.textContent.toLowerCase() : '';
+            const moralEl = card.querySelector('.moral');
+            const moral = moralEl ? moralEl.textContent.toLowerCase() : '';
+            const verseEl = card.querySelector('.islamic-verse');
+            const verseText = verseEl ? verseEl.textContent.toLowerCase() : '';
             
             const isVisible = title.includes(searchTerm) || 
                             content.includes(searchTerm) || 
@@ -245,15 +248,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (suggestionItem) {
                     const searchValue = suggestionItem.getAttribute('data-search');
                     
-                    if (searchValue === 'request') {
-                        showStoryRequestModal();
-                        searchSuggestions.style.display = 'none';
-                        searchBox.blur();
-                    } else {
-                        searchBox.value = searchValue;
-                        performSearch();
-                        searchSuggestions.style.display = 'none';
-                    }
+                    // Insert search value and perform search
+                    if (searchBox) searchBox.value = searchValue || '';
+                    performSearch();
+                    if (searchSuggestions) searchSuggestions.style.display = 'none';
                 }
             });
         }

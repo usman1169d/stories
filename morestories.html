@@ -36,6 +36,9 @@
             margin-bottom: 30px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            /* Ensure the header (and its dropdowns) sits above transformed story cards */
+            position: relative;
+            z-index: 2000;
         }
 
         h1 {
@@ -125,7 +128,10 @@
             border-radius: 0 0 15px 15px;
             max-height: 200px;
             overflow-y: auto;
-            z-index: 1000;
+            /* High z-index to ensure dropdown is above any transformed elements */
+            z-index: 9999;
+            /* promote to its own layer for consistent stacking */
+            transform: translateZ(0);
             display: none;
         }
 
@@ -302,26 +308,22 @@
                     <span>⏎</span>
                 </button>
                 <div class="search-suggestions" id="searchSuggestions">
-                    <div class="suggestion-item" data-search="request">
-                        <div class="suggestion-category">📝 Story Request</div>
-                        <div class="suggestion-text">Request a new Islamic story to be added</div>
-                    </div>
-                    <div class="suggestion-item" data-search="patience">
-                        <div class="suggestion-category">🌱 Popular Searches</div>
-                        <div class="suggestion-text">Stories about patience and perseverance</div>
-                    </div>
-                    <div class="suggestion-item" data-search="forgiveness">
-                        <div class="suggestion-category">💝 Popular Searches</div>
-                        <div class="suggestion-text">Stories about forgiveness and mercy</div>
-                    </div>
-                    <div class="suggestion-item" data-search="charity">
-                        <div class="suggestion-category">💰 Popular Searches</div>
-                        <div class="suggestion-text">Stories about giving and charity</div>
-                    </div>
-                    <div class="suggestion-item" data-search="prayer">
-                        <div class="suggestion-category">🤲 Popular Searches</div>
-                        <div class="suggestion-text">Stories about the power of prayer</div>
-                    </div>
+                     <div class="suggestion-item" data-search="patience">
+                         <div class="suggestion-category">🌱 Popular Searches</div>
+                         <div class="suggestion-text">Stories about patience and perseverance</div>
+                     </div>
+                     <div class="suggestion-item" data-search="forgiveness">
+                         <div class="suggestion-category">💝 Popular Searches</div>
+                         <div class="suggestion-text">Stories about forgiveness and mercy</div>
+                     </div>
+                     <div class="suggestion-item" data-search="charity">
+                         <div class="suggestion-category">💰 Popular Searches</div>
+                         <div class="suggestion-text">Stories about giving and charity</div>
+                     </div>
+                     <div class="suggestion-item" data-search="prayer">
+                         <div class="suggestion-category">🤲 Popular Searches</div>
+                         <div class="suggestion-text">Stories about the power of prayer</div>
+                     </div>
                 </div>
             </div>
         </header>
@@ -366,9 +368,6 @@
                 <div class="moral">
                     💝 Moral: Forgiveness and putting others' needs first brings unexpected rewards from Allah.
                 </div>
-                <div class="islamic-verse">
-                    "But whoever forgives and makes reconciliation, his reward is with Allah." - Quran 42:40
-                </div>
             </div>
 
             <div class="story-card">
@@ -405,9 +404,6 @@
                 <div class="moral">
                     🤲 Moral: Sincere prayers, even from the youngest hearts, reach Allah and are answered in wonderful ways.
                 </div>
-                <div class="islamic-verse">
-                    "And when My servants ask you concerning Me, indeed I am near. I respond to the invocation of the supplicant when he calls upon Me." - Quran 2:186
-                </div>
             </div>
 
             <div class="story-card">
@@ -417,13 +413,10 @@
                     <br><br>
                     Abdullah's wife whispered, "We barely have enough for ourselves." But Abdullah remembered the Quran's teaching and gave them the money he had saved for his own family's Eid clothes.
                     <br><br>
-                    The next day, Abdullah received an unexpected call about a old business deal that brought him more profit than he had lost. His trust in Allah's promise about charity had been rewarded beyond measure.
+                    The next day, Abdullah received an unexpected call about an old business deal that brought him more profit than he had lost. His trust in Allah's promise about charity had been rewarded beyond measure.
                 </div>
                 <div class="moral">
                     💰 Moral: Giving charity, especially in difficult times, brings Allah's protection and abundance.
-                </div>
-                <div class="islamic-verse">
-                    "The example of those who spend their wealth in the way of Allah is like a seed of grain that sprouts seven ears; in every ear there are a hundred grains." - Quran 2:261
                 </div>
             </div>
 
@@ -439,9 +432,6 @@
                 <div class="moral">
                     👥 Moral: Good company leads to good character, while bad company corrupts even good people.
                 </div>
-                <div class="islamic-verse">
-                    "And keep yourself patient with those who call upon their Lord in the morning and the evening, seeking His countenance." - Quran 18:28
-                </div>
             </div>
 
             <div class="story-card">
@@ -455,9 +445,6 @@
                 </div>
                 <div class="moral">
                     💎 Moral: Honesty and integrity are rewarded by Allah in ways we cannot imagine.
-                </div>
-                <div class="islamic-verse">
-                    "O you who believe! Be afraid of Allah, and be with those who are true." - Quran 9:119
                 </div>
             </div>
 
@@ -473,9 +460,6 @@
                 <div class="moral">
                     🌾 Moral: Patience and trust in Allah's timing leads to blessings beyond our understanding.
                 </div>
-                <div class="islamic-verse">
-                    "And give good tidings to the patient, Who, when disaster strikes them, say, 'Indeed we belong to Allah, and indeed to Him we will return.'" - Quran 2:155-156
-                </div>
             </div>
 
             <div class="story-card">
@@ -490,9 +474,6 @@
                 <div class="moral">
                     🗣️ Moral: Kind words and good character can transform hearts and change entire communities.
                 </div>
-                <div class="islamic-verse">
-                    "And speak to people good words." - Quran 2:83
-                </div>
             </div>
 
             <div class="story-card">
@@ -500,7 +481,7 @@
                 <div class="story-content">
                     Nabil looks into the padi field and watches the tadpoles swimming. It is the planting season and the padi field is flooded. Farmers are going to remove the seedlings from the seed beds and transplant them into the flooded fields. The warm, wet climate in the tropics is ideal for growing padi. Meantime the tadpoles are having fun swimming in the empty field.
                     <br><br>
-                    Nabil is waiting for his father to take him to the masjid. He can hear his father calling him, "Nabil, where are you?" (Aina anta, ya Nabil?) Nabil replies, "I am coming, Ayah." He rushes to the road to meet his father.
+                    Nabil is waiting for his father to take him to the masjid. He can hear his father calling him, "Nabil, where are you?" (Aina anta, ya Nabil?) Nabil replies, "I am coming, Dad." He rushes to the road to meet his father.
                     <br><br>
                     As they start walking they hear a sound, squiissh, squiissh, squiissh, squiissh. "What is that noise?" asks Nabil. They stop to listen, but the noise stops as well. As they start walking again, they hear the noise again, squiissh, squiissh, squiissh, squiissh. Again they stop to listen. Again the noise stops. They are very puzzled. " Is someone following us?" asks Nabil, as he looks back. But there is no one there. What could the noise be? Is it a bird in the sky or an insect in the padi field? Again as they start walking they hear the noise.
                     <br><br>
@@ -508,33 +489,29 @@
                     <br><br>
                     Nabil is very excited. Shopping for new shoes will be fun.
                     <br><br>
-                    On Monday after school, Nabil asks his father, "Ayah, can we go shopping for my shoes?" His father says, "Sabar (be patient), Nabil." Then Nabil says to his father, "Ayah, today I saw my friend Azman wearing a nice pair of black shoes." His father says, "Alhamdulillah, that is what Allah (subhanahu wa Ta'ala) has given to him."
+                    On Monday after school, Nabil asks his father, "Dad, can we go shopping for my shoes?" His father says, "Sabar (be patient), Nabil." Then Nabil says to his father, "Dad, today I saw my friend Azman wearing a nice pair of black shoes." His father says, "Alhamdulillah, that is what Allah (subhanahu wa Ta'ala) has given to him."
                     <br><br>
-                    On Tuesday after school, Nabil asks his father again, "Ayah, can we go shopping for my shoes?" His father says the same thing, " Sabar, Nabil." Then Nabil says to his father, "Ayah, today I saw Ustaz Marwan wearing a new pair of white shoes." His father says, "Alhamdulillah, that is what Allah s.w.t has given to him."
+                    On Tuesday after school, Nabil asks his father again, "Dad, can we go shopping for my shoes?" His father says the same thing, "Sabar, Nabil." Then Nabil says to his father, "Dad, today I saw Ustaz Marwan wearing a new pair of white shoes." His father says, "Alhamdulillah, that is what Allah s.w.t has given to him."
                     <br><br>
-                    On Wednesday after school, Nabil asks his father again, "Ayah, can we go shopping for my shoes?" His father says, "Sabar, Nabil." "Nabil, today I saw the postman wearing smart blue shoes." This time Nabil says, "Alhamdulillah, that is what Allah (subhanahu wa Ta'ala) has given to him."
+                    On Wednesday after school, Nabil asks his father again, "Dad, can we go shopping for my shoes?" His father says, "Sabar, Nabil." "Nabil, today I saw the postman wearing smart blue shoes." This time Nabil says, "Alhamdulillah, that is what Allah (subhanahu wa Ta'ala) has given to him."
                     <br><br>
-                    On Sunday again Nabil says, "Ayah, can we go shopping for my shoes?" His father says, "Yes, today after salatul Zohor, insha Allah, we will go and buy your shoes." Nabil performs his salatul Zohor and quickly gets ready to go out shopping.
+                    On Sunday again Nabil says, "Dad, can we go shopping for my shoes?" His father says, "Yes, today after salatul Zohor, insha Allah, we will go and buy your shoes." Nabil performs his salatul Zohor and quickly gets ready to go out shopping.
                     <br><br>
-                    At the shoe shop, Nabil sees a nice pair of black shoes. "Ayah, these shoes look very smart," says Nabil. His father says, "Yes, they look great, Nabil." His father looks at the price. "Nabil, we can only spend $25 for your shoes. These shoes cost $55. It would be a waste to buy these expensive shoes. This is an extravagance. We would be spending an extra $30. Allah (subhanahu wa Ta'ala) does not want us to be extravagant, Nabil. What do you think we can use the $30 for?"
+                    At the shoe shop, Nabil sees a nice pair of black shoes. "Dad, these shoes look very smart," says Nabil. His father says, "Yes, they look great, Nabil." His father looks at the price. "Nabil, we can only spend $25 for your shoes. These shoes cost $55. It would be a waste to buy these expensive shoes. This is an extravagance. We would be spending an extra $30. Allah (subhanahu wa Ta'ala) does not want us to be extravagant, Nabil. What do you think we can use the $30 for?
                     <br><br>
-                    Nabil's father then reads a verse of the Qur'an: "And waste not by extravagance. Verily, He (Allah) loves not those who waste by extravagance." - Surah 6 Verse 141
+                    "Okay, Dad," Nabil says. "We will not be extravagant." Nabil always obeys his father, he is a soleh child.
                     <br><br>
-                    "Okay, Ayah," Nabil says. "We will not be extravagant." Nabil always obeys his father, he is a soleh child.
+                    Then Nabil sees a pair of brown shoes that look very nice. "Dad, these shoes are $27 only, can I buy them," asks Nabil. His father looks at the shoes and says, "Yes, Nabil, these shoes are just right for you."
                     <br><br>
-                    Then Nabil sees a pair of brown shoes that look very nice. "Ayah, these shoes are $27 only, can I buy them," asks Nabil. His father looks at the shoes and says, "Yes, Nabil, these shoes are just right for you."
+                    As the salesman looks for the right size of shoes, Nabil wanders around the shop and soon sees a pair of white shoes that cost $17 only. He likes the shoelaces on them. There are little bells dangling at the end of the shoelaces. "Dad, Dad," Nabil calls as he runs to the other side of the shop in excitement. "Can I buy these pair of white shoes with the little bells on them. They are cheaper than the brown shoes; we will save money too. Do you know how much money we will save Dads?"
                     <br><br>
-                    As the salesman looks for the right size of shoes, Nabil wanders around the shop and soon sees a pair of white shoes that cost $17 only. He likes the shoelaces on them. There are little bells dangling at the end of the shoelaces. "Ayah, Ayah," Nabil calls as he runs to the other side of the shop in excitement. "Can I buy these pair of white shoes with the little bells on them. They are cheaper than the brown shoes; we will save money too. Do you know how much money we will save Ayah?"
-                    <br><br>
-                    "Are you sure you want these shoes Nabil. I don't mind paying $27 for the brown shoes, if you want them," his father says. "No, I don't want the expensive brown shoes. I want these white shoes which are cheaper. Ayah, we must not waste money. Remember what Allah (subhanahu wa Ta'ala) says," Nabil reminds his father by reading the verse from the Qur'an.
+                    "Are you sure you want these shoes Nabil. I don't mind paying $27 for the brown shoes, if you want them," his father says. "No, I don't want the expensive brown shoes. I want these white shoes which are cheaper. Dad, we must not waste money.
                     <br><br>
                     His father smiles when Nabil finishes reading the verse. He says, "Well, Nabil, now you have a new pair of white shoes." Nabil replies, "Alhamdulillah, this is what Allah (subhanahu wa Ta'ala) has given to me."
                     <br><br>
                     Nabil is very happy. He keeps looking at his new white shoes, smiles and keeps saying, "Alhamdulillah, Alhamdulillah."
                     <br><br>
                     On the way back, Nabil's father says, "Nabil you can have the $10 we saved by buying these white shoes. You can do what you want with it, but remember to do only those things that will earn you the pleasure of Allah (swt) When Allah (subhanahu wa Ta'ala) brings rezeki to us He also waits to see what we do with it. This $10 comes to you from Allah (subhanahu wa Ta'ala)"
-                    <br><br>
-                    Nabil's father reads a verse of the Qur'an: "And whatever of blessings and good things you have, it is from Allah." - Surah An-Nahl 16:53
                     <br><br>
                     The next day Nabil is thinking of what he would like to do with all that money. It is a lot of money and he has never had so much before. At first he thinks he would like to spend all the money on ice cream or chocolates or even buy that toy car he has seen at the supermarket. Just the thought of it makes him very excited. But then he asks himself, "Will Allah (subhanahu wa Ta'ala) be pleased with me if I spend all the money on myself?"
                     <br><br>
@@ -552,9 +529,6 @@
                 </div>
                 <div class="moral">
                     💰 Moral: Be patient, spend wisely, and always remember to share your blessings with those in need — for every blessing comes from Allah (Subhanahu wa Ta'ala).
-                </div>
-                <div class="islamic-verse">
-                    "And whatever of blessings and good things you have, it is from Allah." - Quran 16:53
                 </div>
             </div>
 
@@ -574,9 +548,6 @@
                 <div class="moral">
                     💎 Moral: True value lies in good character and righteous deeds, not in material possessions or outward appearances.
                 </div>
-                <div class="islamic-verse">
-                    "Indeed, the most noble of you in the sight of Allah is the most righteous of you." - Quran 49:13
-                </div>
             </div>
 
             <div class="story-card">
@@ -592,9 +563,6 @@
                 </div>
                 <div class="moral">
                     🐱 Moral: Showing kindness to all of Allah's creatures, no matter how small, brings unexpected blessings and rewards.
-                </div>
-                <div class="islamic-verse">
-                    "Whoever is kind to the creatures of God, he is kind to himself." - Hadith of Prophet Muhammad (PBUH)
                 </div>
             </div>
 
@@ -612,9 +580,6 @@
                 <div class="moral">
                     🌙 Moral: Sincere prayer, especially during the quiet hours of the night, has special power to reach Allah and bring relief.
                 </div>
-                <div class="islamic-verse">
-                    "And it is He who created the heavens and earth in truth. And the day He says, 'Be,' and it is, His word is the truth." - Quran 6:73
-                </div>
             </div>
 
             <div class="story-card">
@@ -630,9 +595,6 @@
                 </div>
                 <div class="moral">
                     🍞 Moral: When we give to others despite having little ourselves, Allah multiplies our blessings in ways we never expected.
-                </div>
-                <div class="islamic-verse">
-                    "And whoever relies upon Allah - then He is sufficient for him. Indeed, Allah will accomplish His purpose." - Quran 65:3
                 </div>
             </div>
 
@@ -650,9 +612,6 @@
                 <div class="moral">
                     📚 Moral: When we choose integrity over shortcuts, Allah opens doors that we never knew existed.
                 </div>
-                <div class="islamic-verse">
-                    "And whoever fears Allah - He will make for him a way out." - Quran 65:2
-                </div>
             </div>
 
             <div class="story-card">
@@ -667,9 +626,6 @@
                 <div class="moral">
                     🏪 Moral: Treating the poor with dignity and generosity opens doors to greater blessings from Allah.
                 </div>
-                <div class="islamic-verse">
-                    "And whatever you spend in good, Allah knows it." - Quran 2:273
-                </div>
             </div>
 
             <div class="story-card">
@@ -683,9 +639,6 @@
                 </div>
                 <div class="moral">
                     👩‍👦 Moral: A mother's love and prayers can turn any challenge into a source of strength and purpose.
-                </div>
-                <div class="islamic-verse">
-                    "And your Lord has decreed that you worship none but Him, and be kind to parents." - Quran 17:23
                 </div>
             </div>
 
@@ -703,9 +656,6 @@
                 <div class="moral">
                     🌱 Moral: Our Islamic identity is like rich soil that helps us grow strong, even when others don't understand.
                 </div>
-                <div class="islamic-verse">
-                    "And whoever relies upon Allah - then He is sufficient for him." - Quran 65:3
-                </div>
             </div>
 
             <div class="story-card">
@@ -719,9 +669,6 @@
                 </div>
                 <div class="moral">
                     🏘️ Moral: Good character and kindness to neighbors can be the most powerful form of dawah (invitation to Islam).
-                </div>
-                <div class="islamic-verse">
-                    "And worship Allah and associate nothing with Him, and to parents do good, and to relatives, orphans, the needy, the near neighbor and the neighbor farther away." - Quran 4:36
                 </div>
             </div>
 
@@ -737,9 +684,6 @@
                 <div class="moral">
                     💼 Moral: Working with integrity and excellence, even when no one is watching, brings Allah's blessings and recognition.
                 </div>
-                <div class="islamic-verse">
-                    "And that there is nothing for man except what he strives for." - Quran 53:39
-                </div>
             </div>
 
             <div class="story-card">
@@ -753,9 +697,6 @@
                 </div>
                 <div class="moral">
                     🎓 Moral: When we sacrifice for others, Allah provides for us in ways we never imagined.
-                </div>
-                <div class="islamic-verse">
-                    "And whoever saves a life, it is as if he has saved all of mankind." - Quran 5:32
                 </div>
             </div>
 
@@ -771,9 +712,6 @@
                 <div class="moral">
                     🚕 Moral: Honesty and trustworthiness open doors to opportunities beyond our imagination.
                 </div>
-                <div class="islamic-verse">
-                    "Those who are faithful to their trusts and their pledges." - Quran 23:8
-                </div>
             </div>
 
             <div class="story-card">
@@ -787,9 +725,6 @@
                 </div>
                 <div class="moral">
                     👩‍⚕️ Moral: Treating all people with equal compassion, regardless of their status, brings lasting blessings and honor.
-                </div>
-                <div class="islamic-verse">
-                    "And whoever saves a life, it is as if he has saved all of mankind." - Quran 5:32
                 </div>
             </div>
 
@@ -805,9 +740,6 @@
                 <div class="moral">
                     🏠 Moral: Those who help others despite their own struggles are blessed with the means to help even more.
                 </div>
-                <div class="islamic-verse">
-                    "And Allah is the best of providers." - Quran 62:11
-                </div>
             </div>
 
             <div class="story-card">
@@ -821,9 +753,6 @@
                 </div>
                 <div class="moral">
                     🧵 Moral: Faith in Allah and kindness to others can transform the greatest hardships into the greatest successes.
-                </div>
-                <div class="islamic-verse">
-                    "And it is He who sends down rain from heaven, and We produce thereby the vegetation of every kind." - Quran 6:99
                 </div>
             </div>
 
@@ -839,9 +768,6 @@
                 <div class="moral">
                     🔧 Moral: Honesty in admitting mistakes builds trust and respect, even from the hardest hearts.
                 </div>
-                <div class="islamic-verse">
-                    "O you who believe! Stand out firmly for justice, as witnesses to Allah, even if it be against yourselves, your parents, and your relatives." - Quran 4:135
-                </div>
             </div>
 
             <div class="story-card">
@@ -855,9 +781,6 @@
                 </div>
                 <div class="moral">
                     📖 Moral: Dedication, practice, and trust in Allah can overcome any obstacle, regardless of age or circumstances.
-                </div>
-                <div class="islamic-verse">
-                    "And whoever strives only strives for [the benefit of] himself. Indeed, Allah is free from need of the worlds." - Quran 29:6
                 </div>
             </div>
 
@@ -873,9 +796,6 @@
                 <div class="moral">
                     🔨 Moral: When we do our best work for Allah's sake, He opens doors to opportunities beyond our imagination.
                 </div>
-                <div class="islamic-verse">
-                    "And that there is nothing for man except what he strives for." - Quran 53:39
-                </div>
             </div>
 
             <div class="story-card">
@@ -889,9 +809,6 @@
                 </div>
                 <div class="moral">
                     👁️ Moral: True sight comes from the heart, and a person with inner light can guide others even in darkness.
-                </div>
-                <div class="islamic-verse">
-                    "And whoever Allah guides - he is the [rightly] guided; but whoever He leaves astray - never will you find for him a protecting guide." - Quran 18:17
                 </div>
             </div>
 
@@ -907,9 +824,6 @@
                 <div class="moral">
                     🎣 Moral: Patience and perseverance, combined with trust in Allah, often lead to blessings greater than we could imagine.
                 </div>
-                <div class="islamic-verse">
-                    "And give good tidings to the patient." - Quran 2:155
-                </div>
             </div>
 
             <div class="story-card">
@@ -923,9 +837,6 @@
                 </div>
                 <div class="moral">
                     🛒 Moral: Generosity to others creates a cycle of blessings that returns to us multiplied by Allah's grace.
-                </div>
-                <div class="islamic-verse">
-                    "The example of those who spend their wealth in the way of Allah is like a seed of grain that sprouts seven ears; in every ear there are a hundred grains." - Quran 2:261
                 </div>
             </div>
 
@@ -941,9 +852,6 @@
                 <div class="moral">
                     🧹 Moral: True nobility comes from good character and kindness, not from job titles or social status.
                 </div>
-                <div class="islamic-verse">
-                    "Indeed, the most noble of you in the sight of Allah is the most righteous of you." - Quran 49:13
-                </div>
             </div>
 
             <div class="story-card">
@@ -958,9 +866,6 @@
                 <div class="moral">
                     ⚖️ Moral: Speaking the truth, even when it's difficult, protects the innocent and earns Allah's protection for ourselves.
                 </div>
-                <div class="islamic-verse">
-                    "O you who believe! Stand out firmly for justice, as witnesses to Allah, even if it be against yourselves." - Quran 4:135
-                </div>
             </div>
 
             <div class="story-card">
@@ -974,9 +879,6 @@
                 </div>
                 <div class="moral">
                     🤲 Moral: Consistent prayer and strong faith, even at a young age, can inspire and guide others in times of need.
-                </div>
-                <div class="islamic-verse">
-                    "And when My servants ask you concerning Me, indeed I am near." - Quran 2:186
                 </div>
             </div>
 
@@ -994,9 +896,6 @@
                 <div class="moral">
                     🌱 Moral: Duas, like seeds, need patience and trust to grow into Allah's perfect timing and wisdom.
                 </div>
-                <div class="islamic-verse">
-                    "And Allah is the best of planners." - Quran 8:30
-                </div>
             </div>
 
             <div class="story-card">
@@ -1010,9 +909,6 @@
                 </div>
                 <div class="moral">
                     💰 Moral: Facing our responsibilities with honesty and determination builds character and opens new opportunities.
-                </div>
-                <div class="islamic-verse">
-                    "Those who are faithful to their trusts and their pledges." - Quran 23:8
                 </div>
             </div>
 
@@ -1028,9 +924,6 @@
                 <div class="moral">
                     📨 Moral: Excellence in small responsibilities prepares us for greater opportunities and success.
                 </div>
-                <div class="islamic-verse">
-                    "And that there is nothing for man except what he strives for." - Quran 53:39
-                </div>
             </div>
 
             <div class="story-card">
@@ -1044,9 +937,6 @@
                 </div>
                 <div class="moral">
                     👵 Moral: Consistent kindness and wisdom, shared over time, builds bonds that return to support us when needed.
-                </div>
-                <div class="islamic-verse">
-                    "And lower to them the wing of humility out of mercy and say, 'My Lord, have mercy upon them as they brought me up [when I was] small.'" - Quran 17:24
                 </div>
             </div>
 
@@ -1062,9 +952,6 @@
                 <div class="moral">
                     🔧 Moral: Honesty in business, even when it means less immediate profit, builds trust that leads to greater long-term success.
                 </div>
-                <div class="islamic-verse">
-                    "O you who believe! Fulfill your contracts." - Quran 5:1
-                </div>
             </div>
 
             <div class="story-card">
@@ -1078,9 +965,6 @@
                 </div>
                 <div class="moral">
                     🎓 Moral: Speaking truth with respect and kindness can educate others and remove misconceptions about our faith.
-                </div>
-                <div class="islamic-verse">
-                    "Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best." - Quran 16:125
                 </div>
             </div>
 
@@ -1096,9 +980,6 @@
                 <div class="moral">
                     🚴 Moral: Dedication to service, regardless of circumstances, demonstrates character that leads to greater opportunities.
                 </div>
-                <div class="islamic-verse">
-                    "And whoever does righteous deeds, whether male or female, while being a believer - those will enter Paradise." - Quran 4:124
-                </div>
             </div>
 
             <div class="story-card">
@@ -1108,13 +989,10 @@
                     <br><br>
                     One day, the old man caught her watering his roses. "Young lady, have you been taking care of my garden?" he asked. Embarrassed, Fatima nodded. "I hope you don't mind. I just noticed the plants needed care."
                     <br><br>
-                    Tears filled the old man's eyes. "My dear child, this garden was planted by my late wife. You've kept her memory alive." He had no children of his own, and in his will, he left his house to Fatima, saying, "She cared for what I loved most when I couldn't. True neighbors are family chosen by Allah."
+                    Tears filled the old man's eyes. "My dear child, this garden was planted by my late wife. You've kept her memory alive." He had no children of his own, and in his will, he left his house to Fatima, saying, "True neighbors are family chosen by Allah."
                 </div>
                 <div class="moral">
                     🌺 Moral: Silent acts of kindness toward neighbors create bonds stronger than blood and are remembered by Allah and people.
-                </div>
-                <div class="islamic-verse">
-                    "And worship Allah and associate nothing with Him, and to parents do good, and to relatives, orphans, the needy, the near neighbor and the neighbor farther away." - Quran 4:36
                 </div>
             </div>
 
@@ -1128,10 +1006,7 @@
                     Ahmad's behavior gradually improved as he felt understood and cared for. Years later, Ahmad became a successful social worker helping troubled children. At his graduation, he said, "Ustaz Muhammad showed me that patience and love can heal even the most wounded hearts. He saved my life by never giving up on me."
                 </div>
                 <div class="moral">
-                    👨‍🏫 Moral: Patience and compassion with difficult people can transform their lives and create lasting positive change.
-                </div>
-                <div class="islamic-verse">
-                    "But whoever forgives and makes reconciliation, his reward is with Allah." - Quran 42:40
+                                       👨‍🏫 Moral: Patience and compassion with difficult people can transform their lives and create lasting positive change.
                 </div>
             </div>
 
@@ -1146,9 +1021,6 @@
                 </div>
                 <div class="moral">
                     🛡️ Moral: Faithfully fulfilling our responsibilities, even when no one is watching, protects others and brings Allah's blessings.
-                </div>
-                <div class="islamic-verse">
-                    "Indeed, Allah will not change the condition of a people until they change what is in themselves." - Quran 13:11
                 </div>
             </div>
 
@@ -1170,15 +1042,11 @@
                 <div class="moral">
                     💖 Moral: Expand your heart through faith and patience—when connected to Allah, no problem is too big for your heart to handle.
                 </div>
-                <div class="islamic-verse">
-                    "And whoever relies upon Allah - then He is sufficient for him. Indeed, Allah will accomplish His purpose." - Quran 65:3
-                </div>
             </div>
         </div>
 
         <footer>
             <p>🌙 May Allah guide us all on the straight path through these timeless lessons 🌙</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">"And whoever relies upon Allah - then He is sufficient for him. Indeed, Allah will accomplish His purpose." - Quran 65:3</p>
         </footer>
     </div>
 
